@@ -1,0 +1,12 @@
+
+
+
+Write a C program for creating a multi-threaded process and check:
+
+
+	A.	If one thread in the process calls fork(), does the new process duplicate all threads,
+		or is the new process single-threaded?
+
+	B. 	If a thread invokes the exec() system call, does it replace the entire code of the process?
+
+	C. 	If exec() is called immediately after forking, will all threads be duplicated?
