@@ -31,7 +31,7 @@
    - B. If a thread invokes the `exec()` system call, does it replace the entire code of the process?
    - C. If `exec()` is called immediately after forking, will all threads be duplicated?
 
-10. Write a C program to show how two threads can communicate with the help of a `signal`.
+10. Write a C program to show how two threads can communicate with the help of `signal`.
 
 11. Write a C program to show how data inconsistency arises in a multi-threaded process.
 
