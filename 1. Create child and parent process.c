@@ -15,12 +15,14 @@ int main()
     else if (pid == 0) { // Child process
         printf("Child Process PID = %d\n",getpid());
         printf("Parent PID = %d\n",getppid());
+
+	printf("Child process completed.\n");
     }
     else { // Parent process
         printf("Parent Process PID = %d\n",getpid());
         printf("Child PID = %d\n",pid);
 
-        printf("Child process completed.\n");
+        printf("Parent process completed.\n");
     }
 
     //printf("Out of Parent/Child process\n"); //This will be called by both Parents and Child
