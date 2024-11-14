@@ -1,120 +1,125 @@
-# CSE3242 : Operating Systems Lab
+# CSE3242: Operating Systems Lab
 
+1. Create child and parent process.
 
-1.	Create child and parent process.
+2. Effect of `wait()` in child and parent process relationship.
 
-2.	Effect of wait in child and parent process relationship.
+3. Use `execlp()` to execute a separate executable file as a child process.
 
-3.	Use exclp() to execute a separate exe file as child process.
+### Lab (25/05/2024)
 
+4. Write a C program to create a main process named `parent_process` having 3 child processes without any grandchildren processes. Trace parent and child processes in the process tree. Show that child processes are doing addition, subtraction, and multiplication on two variables initialized in the `parent_process`.
 
-Lab (25/05/2024)
-4.	Write a C program to create a main process named ‘parent_process’ having 3 child processes without any grandchildren processes. Trace parent and child 	processes in the process tree. Show that child processes are doing addition, subtraction and multiplication on two variables initialized in the parent_process.
+5. Write a program to create an orphan process.
 
-5.	Write a program to create an orphan process.
+6. Write a program to create a zombie process.
 
-6.	Write a program to create a zombie process.
+7. Write a C program to create a main process named `parent_process` having 3 child processes without any grandchildren processes. Child processes’ names are `child_1`, `child_2`, `child_3`. Trace the position in the process tree.
 
-7.	Write a C program to create a main process named ‘parent_process’ having 3 child processes without any grandchildren processes. Child Processes’ names are 	child_1, child_2, child_3. Trace the position in the process tree.
+8. Write a C program to create a main process named `parent_process` having `n` child processes without any grandchildren processes. Child processes’ names are `child_1`, `child_2`, `child_3`, ..., `child_n`. Trace the position in the process tree. The number of child processes (`n`) and the names of child processes will be given in the CLI of Linux-based systems.
 
-8.	Write a C program to create a main process named ‘parent_process’ having ‘n’ child processes without any grandchildren processes. Child Processes’ names are 	child_1, child_2, child_3,......., child_n. Trace the position in the process tree. Number of child processes (n) and name of child processes will be given in 	the CLI of Linux based systems.
+    Example:
 
-	Example:
+    ```
+    $ ./parent_process 3 child_1 child_2 child_3
+    ```
 
-	```
-	$ ./parent_process 3 child_1 child_2 child_3
-	Hint: fork, exec, fopen, system
-	```
+    **Hint**: `fork()`, `exec()`, `fopen()`, `system()`
 
+9. Write a C program for creating a multi-threaded process and check:
+   - A. If one thread in the process calls `fork()`, does the new process duplicate all threads, or is the new process single-threaded?
+   - B. If a thread invokes the `exec()` system call, does it replace the entire code of the process?
+   - C. If `exec()` is called immediately after forking, will all threads be duplicated?
 
-9.	Write a C program for creating a multi-threaded process and check:
- 
-	A.	If one thread in the process calls fork() , does the new process duplicate all threads, or is the new process single-threaded? 
-	B.	If a thread invokes the exec() system call, does it replace the entire code of the process?
-	C.	If exec() is called immediately after forking, will all threads be duplicated?
+10. Write a C program to show how two threads can communicate with the help of a `signal`.
 
-10.	Write a C program to show how two threads can communicate by the help of ‘signal’.
+11. Write a C program to show how data inconsistency arises in a multi-threaded process.
 
-11.	Write a C program to show how data inconsistency arises in a multi-threaded process.
+12. Write a multithreaded program that calculates various statistical values for a list of numbers. This program will be passed a series of numbers on the command line and will then create three separate worker threads:
+    - One thread will determine the **average** of the numbers.
+    - The second will determine the **maximum** value.
+    - The third will determine the **minimum** value.
+  
+    For example, suppose your program is passed the integers `90 81 78 95 79 72 85`. The program will report:
+    
+    - A. The average value is 82.
+    - B. The minimum value is 72.
+    - C. The maximum value is 95.
+    
+    The variables representing the average, minimum, and maximum values will be stored globally. The worker threads will set these values, and the parent thread will output the values once the workers have exited.
 
-12.	Write a multithreaded program that calculates various statistical values for a list of numbers. This program will be passed a series of numbers on the command 	line and will then create three separate worker threads. One thread will determine the average of the numbers, the second will determine the maximum value, and 	the third will determine the minimum value. For example, suppose your program is passed the integers 90 81 78 95 79 72 85
-	The program will report
+13. The Fibonacci sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, ...
+   
+    Formally, it can be expressed as:
+    
+    ```
+    fib(0) = 0
+    fib(1) = 1
+    fib(n) = fib(n−1) + fib(n−2)
+    ```
+    
+    Write a multithreaded program that generates the Fibonacci sequence. This program should work as follows: On the command line, the user will enter the number of Fibonacci numbers that the program is to generate. The program will then create a separate thread that will generate the Fibonacci numbers, placing the sequence in shared data (an array is probably the most convenient data structure). When the thread finishes execution, the parent thread will output the sequence generated by the child thread. The parent thread will wait for the child thread to finish before outputting the Fibonacci sequence.
 
-	A. The average value is 82
-	B. The minimum value is 72
-	C. The maximum value is 95
+14. Implement a server-client model to provide services to client processes running on machines different from the server processes. Explain what you experience when:
+    - Server process (single-threaded) tries to provide services to multiple client processes.
+    - Server process (multi-threaded) tries to provide services to multiple client processes.
+    - Server process (single-threaded) tries to provide services to multiple client processes with multiple child processes.
 
-The variables representing the average, minimum, and maximum values will be stored globally. The worker threads will set these values, and the parent thread will output the values once the workers have exited.
+15. Write a multi-threaded program to solve a unique problem that you have identified and solved.
 
+16. Check how multi-threading helps us execute multiple processes at the same time:
+    - A. Check the global and local variable effect.
+    - B. Check the thread race problem.
 
-13.	The Fibonacci sequence is the series of numbers 0, 1, 1, 2, 3, 5, 8, .... 
-	Formally, it can be expressed as:
+17. Write a program to learn `read()` from the keyboard file and `write()` into the monitor file.
 
-	fib0 = 0
-	fib1 = 1
-	fibn = fibn−1 + fibn−2
-	
-	Write a multithreaded program that generates the Fibonacci sequence. This program should work as follows: On the command line, the user will enter the number 	of Fibonacci numbers that the program is to generate. The program will then create a separate thread that will generate the Fibonacci numbers, placing the 	sequence in data that can be shared by the threads (an array is probably the most convenient data structure). When the thread finishes execution, the parent 	thread will output the sequence generated by the child thread. Because the parent thread cannot begin outputting the Fibonacci sequence until the child thread 	finishes, the parent thread will have to wait for the child thread to finish.
+18. Write a program to read from a normal file and display to the monitor using `open()`, `read()`, and `write()` system calls.
 
-14.	Implement a server-client model to provide services to client processes running in machines different from the server processes. Explain what you experience 	when you:
+19. Write a program to write to a normal file using `open()`, `read()`, and `write()` system calls.
 
-	•	Server process being a single threaded process tries to provide services to multiple client processes.
-	•	Server process being a multi-threaded process tries to provide services to multiple client processes.
-	•	Server process being a single threaded process tries to provide services to multiple client processes with multiple child processes.
+20. Write a program to create a named pipe using the `mkfifo()` system call.
 
-15.	Write a multi-threaded program to solve a unique problem which is figured out by you and solved by you.
+21. Write a program to write to a named pipe what is read from the keyboard using `open()`, `read()`, and `write()` system calls.
 
-16.	Check how multi-threading helps us to execute multiple processes at the same time. (a. Check global and local variable effect c. Check thread race problem).
+22. Write a program to read from a named pipe and display it to the monitor using `open()`, `read()`, and `write()` system calls.
 
-17.	Write a program to learn read() from keyboard file and write() into monitor file.
+23. Write a chat room using a named pipe:
+    - A. Start from one end and one-by-one messaging.
+    - B. Start from both ends and message simultaneously.
 
-18.	Write a program to read from a normal file/conventional file and display to monitor using open() read() write() system calls.
+24. Investigate what happens if you try to open a named pipe for reading multiple times.
 
-19.	Write a program to write a normal file/conventional file using open() read() write() system calls.
+25. Implement an unnamed pipe to send a specific message (e.g., "Don't wait for me") from a child process to the parent process, informing it not to wait for the child process.
 
-20.	Write a program to create a named pipe using mkfifo() system call.
+26. Investigate if two separate processes try to read a named pipe first and then write to the pipe.
 
-21.	Write a program to write in a named pipe what is read from the keyboard using open() read() write() system calls.
+27. Investigate when race conditions occur in a multi-threaded program.
 
-22.	Write a program to read from a named pipe and display to monitor using open() read() write() system calls.
+28. Find a solution to avoid race conditions in a multi-threaded program.
 
-23.	Write a chat-room using a named pipe. (a. Start from one end and one by one message. b. Start from both ends and message simultaneously).
+29. Check how many cores you have in your system. Create 4 more processes than the number of cores and use a `for` loop to understand how the OS schedules the process on different cores. Each core should have three threads. Use `get_cpu()` to read the assigned core and `set_cpu()` to set the core for each thread.
 
-24.	Investigate what would happened if you try to open a named pipe for reading multiple times.
+30. Investigate what happens if you lock a thread twice without unlocking it.
 
-25.	Implement a unnamed pipe to send specific message (Say "Don't wait for me") from a child process to parent process to inform not to wait for the child process.
+31. Investigate what happens if you have two threads and use two mutexes for each thread. Investigate the effect of each combination:
+    ```
+    mutex_lock(key1)
+    mutex_lock(key2)
+    ## -- Critical Section -- ##
+    mutex_unlock(key1)
+    mutex_unlock(key2)
+    ```
 
-26.	Investigate if two separate process try to read a named pipe first and then write to the pipe.
+32. Inter-Process Communication (Shared Memory).
 
-27.	Investigate when race condition occurs in a multi-threaded program.
+33. Signal handling.
 
-28.	Find a solution to avoid race condition in a multi-threaded program.
+34. Stack smashing.
 
-29.	Check how many core you have in your system. Create 4 more process than your core and use a for loop to understand how os schedule the process in different 	core. Each core should have three thread. Use get_cpu() to read the assigned core and set_cpu() to set the core for each thread.
+35. Implement FIFO, LRU, and Optimal page replacement algorithms.
 
-30.	If we lock the thread twice, without unlocking it, what would happen? Investigate it.
+36. Create a server-client model for communication using socket programming in C.
 
-31.	If you have two thread and you use two mutex for each thread, what would happen for each combination? Investigate it. Example:
-	
-	```
-	mutex_lock(key1)
-	mutex_lock(key2)
-	##-- Critical Section --##
-	mutex_lock(key1)
-	mutex_lock(key2)
-	```
+37. Create a server-client model for multi-client communication using socket programming in C.
 
-32.	Inter-Process Communication (Shared Memory).
-
-33.	Signal.
-
-34.	Stack Smashing.
-
-35.	Implement FIFO, LRU and Optimal.
-
-36.	Create server-client model for communication using socket programming in C.
-
-37.	Create server-client model for multi-client communication using socket programming in C.
-
-38.	Create server-client model for multi-client communication using socket programming and multi-threading in C.
-
+38. Create a server-client model for multi-client communication using socket programming and multi-threading in C.
