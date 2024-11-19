@@ -2,6 +2,9 @@
 
 	Write a program to create a named pipe using the mkfifo() system call.
 
+
+	Command to delete a pipe : rm /home/israk/1stPipe
+
 */
 
 
